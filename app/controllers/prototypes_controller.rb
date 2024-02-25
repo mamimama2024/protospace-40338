@@ -44,7 +44,7 @@ class PrototypesController < ApplicationController
 
   private
   def move_to_index
-    unless user_signed_in?
+    unless user_signed_in? && current_user.id == @prototype.user_id
       redirect_to root_path
     end
   end
